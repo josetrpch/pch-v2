@@ -3,13 +3,9 @@ import {
   Container,
   Grid,
 } from '@material-ui/core';
-
-
+import  Loading  from '../modales/Loading'
 
 import InformeRessult from './InformeRessult';
-
-
-
 const ViewInforme = () => {
   
 
@@ -23,7 +19,10 @@ const ViewInforme = () => {
             sm={12}
             xl={12}
             xs={12}>
-              <InformeRessult />
+              
+            < Loading /> 
+            
+             <InformeRessult /> 
           </Grid>
 
   

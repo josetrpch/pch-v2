@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {List, ListItemIcon, ListItem, ListItemText, Divider, Container, Menu, MenuItem, Button } from '@material-ui/core';
+import {List, ListItemIcon, ListItem, ListItemText, Divider, Container, Menu, MenuItem, Button, Box, Avatar, Typography } from '@material-ui/core';
 
 import Fade from '@material-ui/core/Fade';
 
@@ -21,8 +21,10 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import {
     BrowserRouter, Switch, Route, Link
 } from 'react-router-dom';
+
 import FormMultiplesRut from './FormMultiplesRut';
 import FormInfoCom from './FormInfoCom';
+import FomConsulIC from './Consultainforme/FomConsulIC';
 
 import ViewInforme from '../components/Consultainforme/ViewInforme';
 
@@ -30,7 +32,7 @@ import RegistroConsultas from './RegistroConsultas';
 import Soporte from './Soporte';
 import VerificacionCheques from './VerificacionCheques';
 import InfoRegistroConsulta from './InfoRegistroConsulta';
-
+import avatar from '../assets/imagenes/favicon.ico';
 const drawerWidth = 310;
 const useStyle = makeStyles( theme=>({
     drawer: {
@@ -75,8 +77,17 @@ const useStyle = makeStyles( theme=>({
         display: 'flex',
         padding: theme.spacing(9),
       },
+      avatar: {
+        margin: theme.spacing(0),
+        backgroundColor: theme.palette.primary.main,
+    },
 
 }))
+const user = {
+  logoUser: 'src/assets/imagenes/1.png',
+  jobTitle: 'Software Developer',
+  name: 'Yosmar Hinestroza'
+};
 
 const Listas = ({open, handleDrawerClose}) => {
     const theme = useTheme();
@@ -133,6 +144,33 @@ const Listas = ({open, handleDrawerClose}) => {
 
 
     <List>
+    <Box
+        alignItems="center"
+        display="flex"
+        flexDirection="column"
+        p={2}
+      > 
+
+      
+        
+       
+          <img  src={avatar} className={classes.avatar} component={Route} to=""/>
+        
+        <Typography
+          className={classes.name}
+          color="textPrimary"
+          variant="h6"
+        >
+          {user.name}
+        </Typography>
+        <Typography
+          color="textSecondary"
+          variant="body2"
+        >
+          {user.jobTitle}
+        </Typography>
+      </Box>
+      <Divider />
         <Link to="/informecomercial" style={{textDecoration: 'none', color: theme.palette.text.primary}}>
         <ListItem button>
                     <ListItemIcon>
@@ -183,7 +221,7 @@ const Listas = ({open, handleDrawerClose}) => {
 
      <main className={classes.content} >
      
-         <Route exact path="/informecomercial" component={ FormInfoCom }/>
+         <Route exact path="/informecomercial" component={ FomConsulIC }/>
          
          <Route exact path="/consultamultiple" component={ FormMultiplesRut }/>
          <Route exact path="/administracion" component={RegistroConsultas}/>

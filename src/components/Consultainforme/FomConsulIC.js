@@ -1,24 +1,27 @@
-import React from 'react';
-
-import { TextField, Grid, Button, Avatar, Paper, Typography, makeStyles, CssBaseline, Container,Breadcrumbs,Link, Box} from '@material-ui/core'
+import React from 'react'
 import { useHistory } from 'react-router-dom';
-import BuildIcon from '@material-ui/icons/Build';
-import SearchIcon from '@material-ui/icons/Search';
-import * as Yup from 'yup';
-import { Formik } from 'formik';
-const useStyles = makeStyles((theme) => ({
+import {
+    Box,
+    Button,
+    Checkbox,
+    Container,
+    FormHelperText,
+    Link,
+    TextField,
+    Typography,
+    makeStyles,
+    Breadcrumbs, 
+    Card, 
+    CardContent, 
+    Avatar, 
+    Paper,
+    CssBaseline
+  } from '@material-ui/core';
+  import SearchIcon from '@material-ui/icons/Search';
+  import * as Yup from 'yup';
+  import { Formik } from 'formik';
 
-    palette: {
-        primary: {
-            main: '#303f9f',
-            color: 'white'
-        },
-        secondary: {
-            main: '#ff001e',
-            backgroundColor: '#ff001e'
-        },
-
-    },
+  const useStyles =  makeStyles( (theme) =>({
     paper: {
         margin: theme.spacing(4, 1),
         display: 'flex',
@@ -31,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.primary.main,
     },
     form: {
-        width: '80%', // Fix IE 11 issue.
+        width: '100%', // Fix IE 11 issue.
         marginTop: theme.spacing(1),
         backgroundColor: theme.palette.primary
     },
@@ -49,30 +52,18 @@ const useStyles = makeStyles((theme) => ({
 
 
     },
-    textField: {
-        width: '100%',
-        marginLeft: theme.spacing(2),
-        marginRight: theme.spacing(2),
-        
-    },
+  }))
+
+const FomConsulIC = () => {
+    const classes = useStyles();
+    const navigate = useHistory();
    
 
 
-}));
-
-const FormInfoCom = () => {
-
-    const ConsultaDatos = () => {
-
-        history.push("/informeComercial-result");
-    }
-
-    const classes = useStyles();
-    const history = useHistory();
 
     return (
         <div>
-            <br />
+             <br />
             <Breadcrumbs aria-label="breadcrumb">
                 <Link color="inherit" href="/" >
                     Portal cheque
@@ -83,49 +74,39 @@ const FormInfoCom = () => {
                 
             </Breadcrumbs>
 
-            <Container container xs={12} sm={8} md={8} xl={8}
-                direction="column"
-                justify="center"
-                className={classes.paper}>
+            <Box
+            display="flex"
+            flexDirection="column"
+            height="100%"
+            justifyContent="center"
+            >
+        <Container xs={12} sm={8} md={8} xl={8} component={Paper} >
+        <CssBaseline />
             
-                <CssBaseline />
-                
-                <Grid container xs={12} sm={8} md={8} xl={8} component={Paper} elevation={1} zeroMinWidth >
-                    <Grid item xs={12} sm={12} md={12} xl={12}
-                        direction="column"
-                        justify="center"
-                        alignItems="center">
-
-
-                        <Typography component="h1" variant="h4" style={{ textAlign: 'center', paddingTop: '5px' }} className={classes.paper} > {/*el component es para quelo tome como un h1 */}
+                <Typography component="h1" variant="h4" style={{ textAlign: 'center', paddingTop: '5px' }} className={classes.paper} > {/*el component es para quelo tome como un h1 */}
                             <Avatar className={classes.avatar} variant="rounded">
                                 <SearchIcon />
                             </Avatar>
                         Informe Comercial
                     </Typography>
-                    </Grid>
-                    <Grid container xs={12} sm={12} md={12} xl={12}
-                        justify="space-around"
-                        alignItems="center"
-                        
-                    >
-
-
-<Formik
+            <Formik
             initialValues={{
-                Nrut: '',
-                Nserie: '',
+                Nrut: "",
+                Nserie: "",
             }}
             validationSchema={
               Yup.object().shape({
                 Nrut: Yup.string().min(9).max(9).required('Debes de indicar Rut'),
-                Nserie: Yup.string().min(9).max(9).required('Debes de indicar N° documento'),
+                Nserie: Yup.string().min(9).max(9).required('Debes de indicar el N° Serie'),
               })
             }
             onSubmit={(values) => {
-              console.log('values'+values.Nrut);
-              console.log('values'+values.Nserie);
-              //navigate.push("/informeComercial-result");
+                if (values.Nrut==null && values.Nserie==null){
+                    console.log('debes de indicar los parametros solicitados');
+                }else{
+                    navigate.push("/informeComercial-result");
+                }
+              
             }}
           >
             {({
@@ -138,16 +119,7 @@ const FormInfoCom = () => {
               values
             }) => (
               <form onSubmit={handleSubmit}>
-                <Box mb={3}>
-                  <Typography
-                    color="textPrimary"
-                    variant="h5"
-                    align="center"
-                  >
-                    Consulta Informe comercial
-                  </Typography>
-                 
-                </Box>
+            
                 <TextField
                   error={Boolean(touched.Nrut && errors.Nrut)}
                   fullWidth
@@ -175,7 +147,7 @@ const FormInfoCom = () => {
                
                 <Box my={2}>
                   <Button
-                    color="primary"
+                    color="secondary"
                     disabled={isSubmitting}
                     fullWidth
                     size="large"
@@ -190,12 +162,12 @@ const FormInfoCom = () => {
               </form>
             )}
           </Formik>
-                    </Grid>
-
-                </Grid>
-
-            </Container>
+                
+      
+        </Container>
+      </Box>
         </div>
     )
 }
-export default FormInfoCom;
+
+export default FomConsulIC;
