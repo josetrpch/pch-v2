@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import FormControl from '@material-ui/core/FormControl'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormLabel from '@material-ui/core/FormLabel'
-import { Grid, Paper, makeStyles, Typography, InputBase, withStyles, Button, Container, IconButton, Tooltip } from '@material-ui/core';
-import AssessmentIcon from '@material-ui/icons/Assessment';
+import { Grid, Paper, makeStyles, Typography, Button, Container, Tooltip} from '@material-ui/core';
 import NativeSelect from '@material-ui/core/NativeSelect';
 
 import 'date-fns';
@@ -10,12 +10,20 @@ import DateFnsUtils from '@date-io/date-fns';
 
 import {
     MuiPickersUtilsProvider,
-    KeyboardTimePicker,
     KeyboardDatePicker
 } from '@material-ui/pickers'
 
 import GraficoBarra from './Graficos/GraficoBarra';
 
+import Fade from '@material-ui/core/Fade';
+
+import Switch from "@material-ui/core/Switch";
+
+//importacion para modal
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+// tabla modal
+import Tabla2 from './Tabla2';
 
 
 
@@ -25,26 +33,37 @@ const useStyles = makeStyles((theme) => ({
         
     },
     paper: {
-        margin: theme.spacing(3, 4),                
+        margin: theme.spacing(3, 2),                
                 
     },
     form: {
         
         marginLeft: theme.spacing(4),
         marginRight: theme.spacing(3),
-        width: '30%',
+        width: '100%',
         marginTop: theme.spacing(4),
         marginBottom: theme.spacing(2),
         
     },
     submit: {
-        width: '5%',
-        margin: theme.spacing(1, 1, 0),
-        padding: theme.spacing(0),
-        
+        marginLeft: theme.spacing(4),
+        marginRight: theme.spacing(3),
+        width: '30%',
+        marginTop: theme.spacing(4),
+        marginBottom: theme.spacing(2),
 
     },
-
+    modal: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      papermodal: {
+        backgroundColor: theme.palette.background.paper,
+        border: '2px solid #000',
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing(2, 4, 3),
+      },
 }))
 
 const RegistroConsultas = () => {
@@ -52,20 +71,27 @@ const RegistroConsultas = () => {
 
     const [verGrafico, setVerGrafico] = useState(false);
 
+    const [open, setOpen] = useState(false);
+
+
     const handleDate = (e) => {
         setSelectDate(e)
     }
 
-    const handleGrafico = (e) => {
-        
-        setVerGrafico(true);
-        
 
-    }
-
+    const handleChange = () => {
+        setVerGrafico((prev) => !prev);
+      };
+      
+        
+    const handleOpen = () => {
+        setOpen(true);
+      };
     
-
-
+      const handleClose = () => {
+        setOpen(false);
+      };
+ 
 
 
     
@@ -74,51 +100,41 @@ const RegistroConsultas = () => {
         <>
 
         
-        <Container container xs={12} sm={8} md={8} xl={8} 
-        direction="column"
+<Container xs={12} sm={12} md={12} xl={12} lg={12} 
+        
         justify="center"
         alignItems="center" 
         className={classes.paper} 
+        component={Paper}
         >
-    <Grid container xs={12} sm={12} md={12} xl={12}  component={Paper} elevation={3}  zeroMinWidth>
-
-        <Grid item xs={12} sm={12} md={12}  > 
+    <Grid spacing={1} container xs={12} sm={8} md={3} lg={12} xl={12}   elevation={3}  zeroMinWidth>
 
         
-        </Grid>
 
-        <Grid item md={12} sm={12}>
-        <Button variant="contained" size="small"  color="primary" 
-                onClick={handleGrafico} 
-                
-                style={{float: 'right'}}
-                className={classes.submit} 
-                >
-                <IconButton
-                color="inherit"
-                >
-                  <Tooltip title="Estadisticas Anuales">
-                  <AssessmentIcon  />
-                  </Tooltip>
-                </IconButton>
-                
-                </Button>
+        <Grid item xs={12} sm={12} md={12} lg={12} xl={12} >
+            <div style={{float: 'right'}}>                                                          
+                <FormControlLabel variant="contained" size="small"  color="primary" 
+                        control={<Switch checked={verGrafico} onChange={handleChange}   value="ahora" inputProps={{ 'aria-label': 'grafico' }} ></Switch> } 
+                        className={classes.submit} >                                                                                                       
+                </FormControlLabel>       
+            </div>
  
-        <Typography component="h1" variant="h4" style={{textAlign: 'center', paddingTop: '0px'}} className={classes.paper} > {/*el component es para quelo tome como un h1 */}
-            Registro de Consultas            
-        </Typography>
+            <Typography component="h1" variant="h4" style={{textAlign: 'center'}} className={classes.paper} > {/*el component es para quelo tome como un h1 */}
+                Registro de Consultas            
+            </Typography>
 
         </Grid> 
 
-        <Grid container xs={12} sm={12} md={12} xl={12}         
-        justify="space-around"
+        <Grid container spacing={1} xs={12} sm={12} md={12} xl={12} lg={12}        
+        justify="space-between"
         alignItems="center" 
         >
-   
+  
             <FormControl  >
                 <FormLabel> Usuarios </FormLabel>
                     <NativeSelect
-                        id="demo-customized-select-native"                        
+                        id="demo-customized-select-native"    
+                        className={classes.form}                    
                         >
                         <option aria-label="None" value="" />
                         <option value={10}>usuario 1</option>
@@ -161,33 +177,64 @@ const RegistroConsultas = () => {
             
         </Grid>
 
-        <Grid container xs={12} sm={12} md={12} xl={12} justify="center" alignItems="center" >
+        <Grid container xs={12} sm={12} md={12} xl={12} lg={12} justify="center" alignItems="center" >
             
-                <Button variant="contained" size="large"  color="secondary" className={classes.form}
-                >
+                <Button variant="contained" type="submit" xs={12} sm={12} md={12} xl={12} lg={12} color="secondary" fullWidth className={classes.submit}
+                onClick={handleOpen}>
                 Consultar
                 </Button>
+               
+
+
+
+
+
+
+                <div>
+
+                <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    timeout: 500,
+                }}
+                >
+                <Fade in={open}>
+                    <div className={classes.papermodal}>
+                    <Tabla2/> {/*aqui ira la vista con la informacion desde la api */}
+                    </div>
+                </Fade>
+                </Modal>
+                </div>
 
             
         </Grid>
 
     </Grid>
 
-        <Grid 
-        item xs={12} sm={12} md={12} xl={12} 
-        direction="column"
-        justify="center"
-        alignItems="center"
-        component={Paper}
-        elevation={3}
-        >
-            { verGrafico ? <GraficoBarra />  : null }
+        <Fade in={ verGrafico }>
+            <Grid 
+            item xs={12} sm={12} md={12} xl={12} 
+            direction="column"
+            justify="center"
+            alignItems="center"
+            component={Paper}
+            elevation={1}
+            >
+                
+                { verGrafico ?  <GraficoBarra /> : null  }
+                
+                
             
-            
+            </Grid>
+        </Fade>
         
-        </Grid>
-        
-        </Container>
+</Container>
 
     </>
 

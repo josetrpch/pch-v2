@@ -62,7 +62,7 @@ const VerificacionCheques = () => {
 
     const ConsultaDatos = () => {
 
-        history.push("/registroconsulta-result");
+        history.push("/verificacioncheque-result");
     }
 
 
