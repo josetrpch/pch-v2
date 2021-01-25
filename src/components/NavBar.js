@@ -1,11 +1,10 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
 import { IconButton, makeStyles, Tooltip, Link} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 
-import AccountCircle from '@material-ui/icons/AccountCircle';
+
 
 import clsx from 'clsx';
 
@@ -76,7 +75,7 @@ const NavBar = ({open, handleDrawerOpen}) => {
           
           >
             <Tooltip title="informe comercial" >
-             <Link  href="/informecomercial"><img src={InformerComercial} style={{width:'50px', height:'50px'}} /></Link> 
+             <Link  href="/informecomercial"><img src={InformerComercial} style={{width:'40px', height:'40px'}} /></Link> 
             </Tooltip>
           </IconButton>
 
@@ -84,35 +83,35 @@ const NavBar = ({open, handleDrawerOpen}) => {
           color="inherit"
           >
             <Tooltip title="Verificacion de Cheques">
-            <img src={VerCheque} style={{width:'50px', height:'50px'}} />
+            <img src={VerCheque} style={{width:'40px', height:'40px'}} />
             </Tooltip>
           </IconButton>
 
           <IconButton 
           color="inherit">
             <Tooltip title="Analytics">
-            <img src={Analytics} style={{width:'50px', height:'50px'}} />
+            <img src={Analytics} style={{width:'40px', height:'40px'}} />
             </Tooltip>
           </IconButton>
 
           <IconButton
           color="inherit">
             <Tooltip title="Verificacion de Orden de No Pago">
-            <img src={VOdenopago} style={{width:'50px', height:'50px'}} />
+            <img src={VOdenopago} style={{width:'40px', height:'40px'}} />
             </Tooltip>
           </IconButton>
 
           <IconButton
           color="inherit">
             <Tooltip title="Verificacion de Factura">
-            <img src={Vdefacturas} style={{width:'50px', height:'50px'}} />
+            <img src={Vdefacturas} style={{width:'40px', height:'40px'}} />
             </Tooltip>
           </IconButton>
 
           <IconButton
           color="inherit">
             <Tooltip title="Cobranza">
-            <img src={Cobranza} style={{width:'50px', height:'50px'}} />
+            <img src={Cobranza} style={{width:'40px', height:'40px'}} />
             </Tooltip>
           </IconButton>
 

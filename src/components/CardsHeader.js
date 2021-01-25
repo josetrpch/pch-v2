@@ -1,7 +1,7 @@
 import React from 'react';
 import {Card, Typography, CardContent, CardActions } from '@material-ui/core';
 import {makeStyles, IconButton} from '@material-ui/core';
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import InfoVerificacionCheque from './InfoVerificacionCheque';
 
 
 const useStyles = makeStyles( () =>({
@@ -11,9 +11,7 @@ const useStyles = makeStyles( () =>({
         background: 'white',
     },
     texto:{            
-        fontSize: 18,
-        
-
+        fontSize: 18,        
     },
     titulo:{
         fontWeight: 'bold',
@@ -24,7 +22,7 @@ const useStyles = makeStyles( () =>({
 
 
 
-const CardsHeader = () => {
+const CardsHeader = ({titulo, rut, giro, direccion}) => {
 
 
 
@@ -33,12 +31,17 @@ const CardsHeader = () => {
     return ( 
         <Card className={classes.root}>
             <CardContent>
-                    <CheckCircleIcon/>
-                <Typography className={classes.titulo}>
-                    Nombre de la Empresa
+            <Typography className={classes.titulo}>
+                    {titulo}
                 </Typography>
                 <Typography className={classes.texto}>
-                    Rut de La Empresa
+                    {rut}
+                </Typography>
+                <Typography className={classes.texto}>
+                    {giro}
+                </Typography>
+                <Typography className={classes.texto}>
+                    {direccion}
                 </Typography>
             </CardContent>
         </Card>
