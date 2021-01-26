@@ -49,8 +49,6 @@ import {
         margin: theme.spacing(2, 0, 1),
         padding: theme.spacing(1),
         color: 'white',
-
-
     },
   }))
 
@@ -58,9 +56,6 @@ const FomConsulIC = () => {
     const classes = useStyles();
     const navigate = useHistory();
    
-
-
-
     return (
         <div>
              <br />

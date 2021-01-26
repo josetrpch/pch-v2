@@ -92,9 +92,9 @@ const InformeRessult = (props) => {
                     
                     <CardContent>
                     <Typography varient="p" align="right"><strong>Folio: No. 5723769</strong></Typography>
-                        <Grid item  xs={12} sm={12} xl={12} md={12} lg={12}  className={classes.paper}>
+                        <Grid item  xs={12} sm={12} xl={12} md={12} lg={12} className={classes.paper} zeroMinWidth>
                        
-                            <Typography component="h1" variant="h4" color="primary"> {/*el component es para que lo tome como un h1 */}
+                            <Typography component="h1" variant="h4" color="primary"> 
                             COMERCIALIZADORA AIS SPA
                             </Typography>
                             <Typography varient="p"><strong>Rut:</strong> 76.540.287-5</Typography>
@@ -102,7 +102,7 @@ const InformeRessult = (props) => {
                             <Typography varient="p"><strong>Teléfonos:</strong> 938669776 - 938669789 </Typography>
                            
                         </Grid>
-                        <Grid container direction="row" justify="space-evenly" alignItems="baseline" >
+                        <Grid container direction="row" justify="space-evenly"   >
                         <Grid item xs={12} md={3}  >
                               
                                 <CardContent>

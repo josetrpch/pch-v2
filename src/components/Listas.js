@@ -150,25 +150,10 @@ const Listas = ({open, handleDrawerClose}) => {
         flexDirection="column"
         p={2}
       > 
-
-      
+          <img  src={avatar} className={classes.avatar} component={Route} to="" width="50px"/>
+          <Typography  className={classes.name} color="textPrimary" variant="h6" hidden={theme.direction === "rtl"} >{user.name}</Typography>
+                                      <Typography color="textSecondary" variant="body2" hidden={theme.direction === "rtl"}> {user.jobTitle} </Typography>
         
-       
-          <img  src={avatar} className={classes.avatar} component={Route} to=""/>
-        
-        <Typography
-          className={classes.name}
-          color="textPrimary"
-          variant="h6"
-        >
-          {user.name}
-        </Typography>
-        <Typography
-          color="textSecondary"
-          variant="body2"
-        >
-          {user.jobTitle}
-        </Typography>
       </Box>
       <Divider />
         <Link to="/informecomercial" style={{textDecoration: 'none', color: theme.palette.text.primary}}>
