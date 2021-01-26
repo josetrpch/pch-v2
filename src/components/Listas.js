@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import {List, ListItemIcon, ListItem, ListItemText, Divider, Container, Menu, MenuItem, Button, Box, Avatar, Typography } from '@material-ui/core';
 
-import Fade from '@material-ui/core/Fade';
+import {List, ListItemIcon, ListItem, ListItemText, Divider, Container, Menu, MenuItem, Button, Box, Avatar, Typography } from '@material-ui/core';
 
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
@@ -31,8 +30,10 @@ import ViewInforme from '../components/Consultainforme/ViewInforme';
 import RegistroConsultas from './RegistroConsultas';
 import Soporte from './Soporte';
 import VerificacionCheques from './VerificacionCheques';
+
 import InfoRegistroConsulta from './InfoRegistroConsulta';
 import avatar from '../assets/imagenes/favicon.ico';
+import InfoVerificacionCheque from './InfoVerificacionCheque';
 const drawerWidth = 310;
 const useStyle = makeStyles( theme=>({
     drawer: {
@@ -213,7 +214,7 @@ const Listas = ({open, handleDrawerClose}) => {
          <Route exact path="/soporte" component={Soporte} />
          <Route exact path="/verificacion" component={VerificacionCheques} />
          <Route exact path="/informeComercial-result" component={ViewInforme} />
-         <Route exact path="/registroconsulta-result" component={InfoRegistroConsulta} />
+         <Route exact path="/verificacioncheque-result" component={InfoVerificacionCheque} />
          
         
     </main>

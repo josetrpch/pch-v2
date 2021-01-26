@@ -1,9 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import {Bar} from 'react-chartjs-2';
-import { Grid, Paper,  Typography, makeStyles, Container, Button, Tooltip, IconButton, Hidden } from '@material-ui/core';
-import AssessmentIcon from '@material-ui/icons/Assessment';
-import CloseIcon from '@material-ui/icons/Close';
+import { Grid, Typography, makeStyles, Container } from '@material-ui/core';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -86,19 +85,6 @@ const GraficoBarra = () => {
             
             <Container 
             >
-                <Button variant="contained" size="small"  color="primary"                 
-                style={{float: 'right'}}
-                className={classes.submit} 
-                >
-                <IconButton
-                color="inherit"
-                >
-                  <Tooltip title="Cerrar">
-                  <CloseIcon  />
-                  </Tooltip>
-                </IconButton>
-                
-                </Button>
 
                 <Grid
                 item xs={12} sm={12} md={12} xl={12} 
