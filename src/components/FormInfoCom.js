@@ -7,71 +7,60 @@ import SearchIcon from '@material-ui/icons/Search';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 const useStyles = makeStyles((theme) => ({
+  palette: {
+    primary: {
+        main: '#303f9f',
+        color: 'white'
+    },
+    secondary: {
+        main: '#ff001e',
+        backgroundColor: '#ff001e'
+    },
+},
 
-    palette: {
-        primary: {
-            main: '#303f9f',
-            color: 'white'
-        },
-        secondary: {
-            main: '#ff001e',
-            backgroundColor: '#ff001e'
-        },
+paper: {
+    margin: theme.spacing(5, 1),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+},
+avatar: {
+    margin: theme.spacing(0),
+    backgroundColor: theme.palette.primary.main,
+},
+form: {
+    width: '50%', // Fix IE 11 issue.
+    marginTop: theme.spacing(0),
+},
+submit: {
+    width: '100%',
+    margin: theme.spacing(1, 0, 2),
+    padding: theme.spacing(1),
+    
 
-    },
-    paper: {
-        margin: theme.spacing(4, 1),
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        
-    },
-    avatar: {
-        margin: theme.spacing(0),
-        backgroundColor: theme.palette.primary.main,
-    },
-    form: {
-        width: '80%', // Fix IE 11 issue.
-        marginTop: theme.spacing(1),
-        backgroundColor: theme.palette.primary
-    },
-    submit: {
-        width: '100%',
-        margin: theme.spacing(1, 0, 2),
-        padding: theme.spacing(1),
+},
+cancel: {
+    width: '100%',
+    margin: theme.spacing(2, 0, 1),
+    padding: theme.spacing(1),
+    color: 'white',
 
-    },
-    cancel: {
-        width: '100%',
-        margin: theme.spacing(2, 0, 1),
-        padding: theme.spacing(1),
-        color: 'white',
-
-
-    },
-    textField: {
-        width: '100%',
-        marginLeft: theme.spacing(2),
-        marginRight: theme.spacing(2),
-        
-    },
-   
-
+},
+textField: {
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2),
+    width: '100vh',
+},
 
 }));
 
 const FormInfoCom = () => {
 
-    const ConsultaDatos = () => {
-
-        history.push("/informeComercial-result");
-    }
-
     const classes = useStyles();
-    const history = useHistory();
+    const navigate = useHistory();
 
     return (
-        <div>
+        <div style={{ width: '100%' }}>
             <br />
             <Breadcrumbs aria-label="breadcrumb">
                 <Link color="inherit" href="/" >
@@ -82,50 +71,44 @@ const FormInfoCom = () => {
                 </Link>
                 
             </Breadcrumbs>
+            <br />
 
-            <Container container xs={12} sm={8} md={8} xl={8}
-                direction="column"
-                justify="center"
-                className={classes.paper}>
-            
+            <Box display="flex"  justifyContent="center" >
+      
                 <CssBaseline />
-                
-                <Grid container xs={12} sm={8} md={8} xl={8} component={Paper} elevation={1} zeroMinWidth >
-                    <Grid item xs={12} sm={12} md={12} xl={12}
-                        direction="column"
-                        justify="center"
-                        alignItems="center">
 
+              <Grid container xs={12} sm={8} md={8} xl={8}  component={Paper} elevation={3}  zeroMinWidth>
+                <Grid item xs={12} sm={12} md={12} xl={12}  direction="column" justify="center"  alignItems="center">  
 
-                        <Typography component="h1" variant="h4" style={{ textAlign: 'center', paddingTop: '5px' }} className={classes.paper} > {/*el component es para quelo tome como un h1 */}
-                            <Avatar className={classes.avatar} variant="rounded">
-                                <SearchIcon />
-                            </Avatar>
-                        Informe Comercial
+                <Typography component="h1" variant="h4" style={{textAlign: 'center', paddingTop: '5px'}} className={classes.paper} > {/*el component es para quelo tome como un h1 */}  
+                    <Avatar className={classes.avatar} variant="rounded">
+                        <SearchIcon />
+                    </Avatar>
+                        Consulta Multiple                                  
                     </Typography>
                     </Grid>
-                    <Grid container xs={12} sm={12} md={12} xl={12}
-                        justify="space-around"
-                        alignItems="center"
-                        
+                    <Grid container xs={12} sm={12} md={12} xl={12}         
+                    justify="space-around"
+                    alignItems="center" 
                     >
-
-
-<Formik
-            initialValues={{
-                Nrut: '',
-                Nserie: '',
-            }}
+                     <Formik
+                    initialValues={{
+                        Nrut: "",
+                        Nserie: "",
+                    }}
             validationSchema={
               Yup.object().shape({
                 Nrut: Yup.string().min(9).max(9).required('Debes de indicar Rut'),
-                Nserie: Yup.string().min(9).max(9).required('Debes de indicar N° documento'),
+                Nserie: Yup.string().min(9).max(9).required('Debes de indicar el N° Serie'),
               })
             }
             onSubmit={(values) => {
-              console.log('values'+values.Nrut);
-              console.log('values'+values.Nserie);
-              //navigate.push("/informeComercial-result");
+                if (values.Nrut==null && values.Nserie==null){
+                    console.log('debes de indicar los parametros solicitados');
+                }else{
+                    navigate.push("/informeComercial-result");
+                }
+              
             }}
           >
             {({
@@ -138,16 +121,7 @@ const FormInfoCom = () => {
               values
             }) => (
               <form onSubmit={handleSubmit}>
-                <Box mb={3}>
-                  <Typography
-                    color="textPrimary"
-                    variant="h5"
-                    align="center"
-                  >
-                    Consulta Informe comercial
-                  </Typography>
-                 
-                </Box>
+            
                 <TextField
                   error={Boolean(touched.Nrut && errors.Nrut)}
                   fullWidth
@@ -175,14 +149,12 @@ const FormInfoCom = () => {
                
                 <Box my={2}>
                   <Button
-                    color="primary"
+                    color="secondary"
                     disabled={isSubmitting}
                     fullWidth
                     size="large"
                     type="submit"
-                    variant="contained"
-                    
-                  >
+                    variant="contained">
                     Informe Comercial
                   </Button>
                 </Box>
@@ -190,11 +162,12 @@ const FormInfoCom = () => {
               </form>
             )}
           </Formik>
+
                     </Grid>
+                  </Grid>
+           
+                  </Box>
 
-                </Grid>
-
-            </Container>
         </div>
     )
 }

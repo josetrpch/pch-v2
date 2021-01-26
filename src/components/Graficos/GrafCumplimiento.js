@@ -2,11 +2,11 @@
 import React from 'react'
 
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardContent, CardHeader, Paper, Typography, Grid, Divider,Button} from '@material-ui/core';
+import { Card, CardContent, CardHeader, Paper, Typography, Grid, Divider,Button, Box} from '@material-ui/core';
 
 
-import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
-import CheckIcon from '@material-ui/icons/Check';
+import ThumbDownIcon from '@material-ui/icons/ThumbDown';
+import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 const useStyles = makeStyles((theme) => ({
     root: {
       width: '100%',
@@ -33,44 +33,47 @@ const GrafCumplimiento = () => {
      
       <>
        
-
-      <CardHeader title="Cumplimiento" />
-    <Divider />
     <Grid container  direction="row" justify="center" alignItems="center" >
-    <Grid item={true} xs={12} sm={4} md={4}   >
+    <Grid item xs={12} sm={4} md={4} xl={4} lg={4}   >
+    
+
+    <Card style={{backgroundColor:'#d5d6db'}}>
+  
     <Button variant="contained" style={{
         
         width: '100%',
         backgroundColor: '#ed3939', 
         color: 'white',
         height: '100px',
-        fontsize: '20px',
+        fontsize: '25px',
          }} >
-       ---
-     </Button>
-            <Typography variant="h6" style={{background: '#f5f5f5'}} align="center">0 a 60</Typography>
-    </Grid>
- 
-    <Grid item={true} xs={12} sm={4} md={4} className={classes.SeleccionSituacionRiesgo} >
-    <Card >
-        <CardContent>
            
-        <Button variant="contained" style={{
+           <ThumbDownIcon  /> 
+          
+           
+     </Button>
+     </Card>
+   
+            <Typography variant="h6" style={{background: '#f5f5f5'}} align="center">0 % Cumplimiento</Typography>
+    </Grid>
+    <Grid item={true} xs={12} sm={4} xl={3} md={4} lg={4}>
+      <Box style={{backgroundColor:'#d5d6db'}}>
+
+      <Card style={{backgroundColor:'#d5d6db'}}>
+    <Button variant="contained" style={{
         
         width: '100%',
-        backgroundColor: '#22a820', 
+     
         color: 'white',
         height: '100px',
         fontsize: '20px',
          }} >
-       < CheckIcon/>  97 Cumplimiento
+       <ThumbUpAltIcon/>
      </Button>
-            <Typography variant="h6" style={{background: '#f5f5f5'}} align="center">70 a 100</Typography>
-
-        </CardContent>
-        
-    </Card>
+     </Card>
+     </Box>
     </Grid>
+  
      
     
     </Grid>
