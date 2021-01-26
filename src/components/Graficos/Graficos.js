@@ -125,20 +125,7 @@ const Graficos = ({ className, ...rest }) => {
         </Box>
       </CardContent>
       <Divider />
-      {/*<Box
-        display="flex"
-        justifyContent="flex-end"
-        p={2}
-      >
-        <Button
-          color="primary"
-          endIcon={<ArrowRightIcon />}
-          size="small"
-          variant="text"
-        >
-          más detalle
-        </Button>
-      </Box>*/}
+      
     </Card>
   );
 };

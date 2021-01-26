@@ -13,6 +13,7 @@ import TblDetalleConsultasRut from './TblDetalleConsultasRut';
 import SituacionRiesgoCard from '../Graficos/SituacionRiesgoCard';
 import GrafCumplimiento from '../Graficos/GrafCumplimiento';
 import TblDOcumentoPortalchq from './TblDOcumentoPortalchq';
+import Loading from '../modales/Loading'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -82,25 +83,18 @@ const formatterPeso = new Intl.NumberFormat('es-CL', {
 const InformeRessult = (props) => {
     const classes = useStyles();
    
-
-  
-
     return (
         <>
-       
-       
-       
-  
-   
+            
             <Grid component="main" >
                 <CssBaseline />
                 <Card>
                     
                     <CardContent>
                     <Typography varient="p" align="right"><strong>Folio: No. 5723769</strong></Typography>
-                        <Grid item xs={12} sm={12} xl={12} md={12}  className={classes.paper}>
+                        <Grid item  xs={12} sm={12} xl={12} md={12} lg={12} className={classes.paper} zeroMinWidth>
                        
-                            <Typography component="h1" variant="h4" color="primary"> {/*el component es para que lo tome como un h1 */}
+                            <Typography component="h1" variant="h4" color="primary"> 
                             COMERCIALIZADORA AIS SPA
                             </Typography>
                             <Typography varient="p"><strong>Rut:</strong> 76.540.287-5</Typography>
@@ -108,8 +102,8 @@ const InformeRessult = (props) => {
                             <Typography varient="p"><strong>Teléfonos:</strong> 938669776 - 938669789 </Typography>
                            
                         </Grid>
-                        <Grid container direction="row" justify="space-evenly" alignItems="baseline" >
-                        <Grid item={true} xs={12} md={3}  >
+                        <Grid container direction="row" justify="space-evenly"   >
+                        <Grid item xs={12} md={3}  >
                               
                                 <CardContent>
 
@@ -122,7 +116,7 @@ const InformeRessult = (props) => {
                                 
 
                             </Grid>
-                            <Grid item={true} xs={12} md={3}  >
+                            <Grid item xs={12} md={3}  >
                                 
                                 <CardContent>
 
@@ -136,7 +130,7 @@ const InformeRessult = (props) => {
 
                             </Grid>
 
-                            <Grid item={true} xs={12} md={3}  >
+                            <Grid item xs={12} md={3}  >
                                 
                                 <CardContent>
 
@@ -179,7 +173,7 @@ const InformeRessult = (props) => {
                                 direction="row"
                                 borderBottom={2}
                             >
-                                <Grid item={true} xs={12} md={3} elevation={1} >
+                                <Grid item xs={12} md={3} elevation={1} >
 
                                     <CardContent >
                                         <div align="center">
@@ -202,7 +196,7 @@ const InformeRessult = (props) => {
 
                                 </Grid>
 
-                                <Grid item={true} xs={12} md={3} elevation={1}>
+                                <Grid item xs={12} md={3} elevation={1}>
 
                                     <CardContent>
                                         <div align="center">
@@ -222,7 +216,7 @@ const InformeRessult = (props) => {
                                     </CardContent>
 
                                 </Grid>
-                                <Grid item={true} xs={12} md={3} elevation={1} >
+                                <Grid item xs={12} md={3} elevation={1} >
 
                                     <CardContent>
                                         <div align="center">
@@ -250,7 +244,7 @@ const InformeRessult = (props) => {
                                     </CardContent>
 
                                 </Grid>
-                                <Grid item={true} xs={12} md={3} elevation={1}  >
+                                <Grid item xs={12} md={3} elevation={1}  >
 
                                     <CardContent>
                                         <div align="center">
