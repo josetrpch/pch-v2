@@ -31,9 +31,10 @@ import RegistroConsultas from './administracion/RegistroConsultas';
 import Soporte from './soporte/Soporte';
 import VerificacionCheques from './verificacioncheques/VerificacionCheques';
 
-import avatar from '../assets/imagenes/favicon.ico';
+import avatar from '../assets/imagenes/userLogin.jpg';
 
 import InfoVerificacionCheque from './verificacioncheques/InfoVerificacionCheque';
+
 
 const drawerWidth = 310;
 const useStyle = makeStyles( theme=>({
@@ -83,6 +84,10 @@ const useStyle = makeStyles( theme=>({
         margin: theme.spacing(0),
         backgroundColor: theme.palette.primary.main,
     },
+    largeAvatar: {
+      width: theme.spacing(5),
+      height: theme.spacing(5),
+    },
 
 }))
 const user = {
@@ -109,9 +114,7 @@ const Listas = ({open, handleDrawerClose}) => {
       setAnchorEl(null);
     };
 
-   
-
-    
+  
     return (
         <>
      <BrowserRouter>   
@@ -146,17 +149,21 @@ const Listas = ({open, handleDrawerClose}) => {
 
 
     <List>
-    <Box
-        alignItems="center"
-        display="flex"
-        flexDirection="column"
-        p={2}
-      > 
-          <img  src={avatar} className={classes.avatar} component={Route} to="" width="50px"/>
-          <Typography  className={classes.name} color="textPrimary" variant="h6" hidden={theme.direction === "rtl"} >{user.name}</Typography>
-                                      <Typography color="textSecondary" variant="body2" hidden={theme.direction === "rtl"}> {user.jobTitle} </Typography>
+    <Link to="/informecomercial" style={{textDecoration: 'none', color: theme.palette.text.primary}}>
+      <ListItem button >
+      <ListItemIcon alignItems="flex">
+            <img src={avatar} className={classes.avatar, classes.largeAvatar} component={Route} to="" width="100px"/>
+            
+            
+      </ListItemIcon>
+      <Typography  className={classes.name} color="textPrimary" variant="h6"> <Typography color="textSecondary" variant="body2" > Conectado (a) como: </Typography> {user.name} <br /> <Typography color="textSecondary" variant="body2" > {user.jobTitle} </Typography> </Typography> < br />
+         
+         
+      </ListItem>
+      </Link>
+         
         
-      </Box>
+      
       <Divider />
         <Link to="/informecomercial" style={{textDecoration: 'none', color: theme.palette.text.primary}}>
         <ListItem button>
@@ -164,7 +171,7 @@ const Listas = ({open, handleDrawerClose}) => {
                         <LibraryBooksIcon/>
                     </ListItemIcon>
                     <ListItemText primary='Informe Comercial' />
-                </ListItem>
+        </ListItem>
         </Link>   
         
         <Link to="/consultamultiple" style={{textDecoration: 'none', color: theme.palette.text.primary}}>
@@ -208,7 +215,7 @@ const Listas = ({open, handleDrawerClose}) => {
 
      <main className={classes.content} >
      
-         <Route exact path="/informecomercial" component={ FomConsulIC }/>
+         <Route exact path="/informecomercial" component={ FormInfoCom }/>
          
          <Route exact path="/consultamultiple" component={ FormMultiplesRut }/>
          <Route exact path="/administracion" component={RegistroConsultas}/>

@@ -28,14 +28,14 @@ const Graficos = ({ className, ...rest }) => {
     datasets: [
       {
         backgroundColor: colors.grey[250],
-        data: [0, 10, 0, 29, 29, 0, 0],
-        label: 'Q: Morosidad'
+        data: [0, 0, 0, 15000, 60000],
+        label: 'Monto Miles:'
       },
-     /* {
+      {
         backgroundColor: colors.grey[200],
-        data: [11, 20, 12, 29, 30, 25, 13],
-        label: 'Last year'
-      }*/
+        data: [0, 3, 3, 11, 30],
+        label: 'Cant. Doctos.'
+      }
     ],
     labels: ['Mas de 24 Meses', '12 A 24 Meses', '6 a 12 Meses', 'Ultimo 6 Meses']
   };
@@ -110,12 +110,12 @@ const Graficos = ({ className, ...rest }) => {
             Filtrar
           </Button>
         )}
-        title="Periodo de Morosidad"
+        
       />
       <Divider />
       <CardContent>
         <Box
-          height={400}
+          height={450}
           position="relative"
         >
           <Line

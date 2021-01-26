@@ -3,16 +3,14 @@ import { useHistory } from 'react-router-dom';
 import {
     Box,
     Button,
-    Checkbox,
+    Grid,
     Container,
-    FormHelperText,
+
     Link,
     TextField,
     Typography,
     makeStyles,
     Breadcrumbs, 
-    Card, 
-    CardContent, 
     Avatar, 
     Paper,
     CssBaseline
@@ -23,11 +21,10 @@ import {
 
   const useStyles =  makeStyles( (theme) =>({
     paper: {
-        margin: theme.spacing(4, 1),
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        
+      margin: theme.spacing(4, 1),
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
     },
     avatar: {
         margin: theme.spacing(0),
@@ -61,7 +58,7 @@ const FomConsulIC = () => {
              <br />
             <Breadcrumbs aria-label="breadcrumb">
                 <Link color="inherit" href="/" >
-                    Portal cheque
+                    Portal Cheque
                 </Link>
                 <Link color="inherit" href="/informecomercial">
                     Informe comercial
@@ -69,21 +66,26 @@ const FomConsulIC = () => {
                 
             </Breadcrumbs>
 
-            <Box
-            display="flex"
-            flexDirection="column"
-            height="100%"
-            justifyContent="center"
-            >
-        <Container xs={12} sm={8} md={8} xl={8} component={Paper} >
-        <CssBaseline />
-            
+            <Container container xs={12} sm={8} md={8} xl={8}
+                direction="column"
+                justify="center"
+                className={classes.paper} component={Paper} elevation={2}>
+     
+            <CssBaseline />
+            <Grid container xs={12} sm={8} md={8} xl={8}>
+                <Grid container xs={12} sm={8} md={8} xl={8}>
+                  
+                </Grid>
+                <Grid item xs={12} sm={12} md={12} xl={12}
+                        direction="column"
+                        justify="center"
+                        alignItems="center">
                 <Typography component="h1" variant="h4" style={{ textAlign: 'center', paddingTop: '5px' }} className={classes.paper} > {/*el component es para quelo tome como un h1 */}
-                            <Avatar className={classes.avatar} variant="rounded">
-                                <SearchIcon />
-                            </Avatar>
-                        Informe Comercial
-                    </Typography>
+                    <Avatar className={classes.avatar} variant="rounded">
+                      <SearchIcon />
+                    </Avatar>
+                    Informe Comercial
+                 </Typography>
             <Formik
             initialValues={{
                 Nrut: "",
@@ -158,9 +160,10 @@ const FomConsulIC = () => {
             )}
           </Formik>
                 
-      
+              </Grid>
+              </Grid>
         </Container>
-      </Box>
+      
         </div>
     )
 }
