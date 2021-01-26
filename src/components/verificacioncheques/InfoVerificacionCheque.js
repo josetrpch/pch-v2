@@ -1,12 +1,12 @@
 import React from 'react';
 import {makeStyles, Tooltip, CssBaseline, Grid, Typography, CardContent} from '@material-ui/core';
-import CardsHeader from './CardsHeader';
-import Cards from './Cards';
+import CardsHeader from '../CardsHeader';
+import Cards from '../Cards';
 
 
 import Fab from '@material-ui/core/Fab';
-import Tabla1 from './Tabla1';
-import Tabla2 from './Tabla2';
+import Tabla1 from '../Tabla1';
+import Tabla2 from '../Tabla2';
 
 const useStyle = makeStyles( (theme) =>({
     root: {

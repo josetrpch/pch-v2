@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Listas from './Listas';
-import FormMultiplesRut from './FormMultiplesRut';
+
 import NavBar from './NavBar';
 
 

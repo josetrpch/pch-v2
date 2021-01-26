@@ -13,7 +13,7 @@ import {
     KeyboardDatePicker
 } from '@material-ui/pickers'
 
-import GraficoBarra from './Graficos/GraficoBarra';
+import GraficoBarra from '../Graficos/GraficoBarra';
 
 import Fade from '@material-ui/core/Fade';
 
@@ -23,7 +23,9 @@ import Switch from "@material-ui/core/Switch";
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 // tabla modal
-import Tabla2 from './Tabla2';
+
+
+import ConsultaApi from '../ConsultaApi'; // moda de prueba
 
 
 
@@ -61,8 +63,9 @@ const useStyles = makeStyles((theme) => ({
       papermodal: {
         backgroundColor: theme.palette.background.paper,
         border: '2px solid #000',
-        boxShadow: theme.shadows[5],
-        padding: theme.spacing(2, 4, 3),
+        boxShadow: theme.shadows[2],
+        padding: theme.spacing(1, 1, 1),
+        
       },
 }))
 
@@ -206,7 +209,7 @@ const RegistroConsultas = () => {
                 >
                 <Fade in={open}>
                     <div className={classes.papermodal}>
-                    <Tabla2/> {/*aqui ira la vista con la informacion desde la api */}
+                    <ConsultaApi/> {/*aqui ira la vista con la informacion desde la api de la tabla*/}
                     </div>
                 </Fade>
                 </Modal>
