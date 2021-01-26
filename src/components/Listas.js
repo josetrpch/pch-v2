@@ -21,19 +21,20 @@ import {
     BrowserRouter, Switch, Route, Link
 } from 'react-router-dom';
 
-import FormMultiplesRut from './FormMultiplesRut';
+import FormMultiplesRut from './consultamultiple/FormMultiplesRut';
 import FormInfoCom from './FormInfoCom';
 import FomConsulIC from './Consultainforme/FomConsulIC';
 
 import ViewInforme from '../components/Consultainforme/ViewInforme';
 
-import RegistroConsultas from './RegistroConsultas';
-import Soporte from './Soporte';
-import VerificacionCheques from './VerificacionCheques';
+import RegistroConsultas from './administracion/RegistroConsultas';
+import Soporte from './soporte/Soporte';
+import VerificacionCheques from './verificacioncheques/VerificacionCheques';
 
-import InfoRegistroConsulta from './InfoRegistroConsulta';
 import avatar from '../assets/imagenes/favicon.ico';
-import InfoVerificacionCheque from './InfoVerificacionCheque';
+
+import InfoVerificacionCheque from './verificacioncheques/InfoVerificacionCheque';
+
 const drawerWidth = 310;
 const useStyle = makeStyles( theme=>({
     drawer: {
@@ -214,6 +215,7 @@ const Listas = ({open, handleDrawerClose}) => {
          <Route exact path="/soporte" component={Soporte} />
          <Route exact path="/verificacion" component={VerificacionCheques} />
          <Route exact path="/informeComercial-result" component={ViewInforme} />
+         
          <Route exact path="/verificacioncheque-result" component={InfoVerificacionCheque} />
          
         

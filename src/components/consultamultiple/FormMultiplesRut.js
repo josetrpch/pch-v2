@@ -4,7 +4,7 @@ import { TextField, Grid, Button, Avatar, Paper, Typography, makeStyles, CssBase
 
 
 import SearchIcon from '@material-ui/icons/Search';
-import BuildIcon from '@material-ui/icons/Build';
+
 
 const useStyles = makeStyles((theme) => ({
 
