@@ -1,7 +1,7 @@
 import React from 'react';
 import {Card, Typography, CardContent, CardActions } from '@material-ui/core';
 import {makeStyles, IconButton} from '@material-ui/core';
-import InfoVerificacionCheque from './InfoVerificacionCheque';
+import InfoVerificacionCheque from './verificacioncheques/InfoVerificacionCheque';
 
 
 const useStyles = makeStyles( () =>({
