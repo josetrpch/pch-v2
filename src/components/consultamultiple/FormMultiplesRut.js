@@ -1,9 +1,7 @@
 import React from 'react';
-
 import { TextField, Grid, Button, Avatar, Paper, Typography, makeStyles, CssBaseline, Container } from '@material-ui/core'
-
-
 import SearchIcon from '@material-ui/icons/Search';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -55,6 +53,9 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
+
+
+
 const FormMultiplesRut = () => {
     const classes = useStyles();
     return (
@@ -85,8 +86,7 @@ const FormMultiplesRut = () => {
                     justify="space-around"
                     alignItems="center" 
                     >
-                                
-           
+                                           
                     <form className={classes.form} noValidate autoComplete="off">
                     <TextField
                             type="text"
@@ -107,7 +107,7 @@ const FormMultiplesRut = () => {
                             xs={12} sm={12} md={12} xl={12}  id="standar-error"
                             margin="normal"
                             fullWidth
-                            name="Nserie"
+                            name="NRut"
                             variant="outlined"
                             required
                             label="Rut"
@@ -117,12 +117,12 @@ const FormMultiplesRut = () => {
                             
 
                         />
-                                                <TextField
+                        <TextField
                             type="text"
                             xs={12} sm={12} md={12} xl={12}  id="standar-error"
                             margin="normal"
                             fullWidth
-                            name="Nserie"
+                            name="NRut"
                             variant="outlined"
                             required
                             label="Rut"
@@ -130,14 +130,13 @@ const FormMultiplesRut = () => {
                             inputProps={{ maxLength: 9 }}
                             helperText="Formato Requerido (601456988)"
                             
-
                         />
-                                                <TextField
+                        <TextField
                             type="text"
                             xs={12} sm={12} md={12} xl={12}  id="standar-error"
                             margin="normal"
                             fullWidth
-                            name="Nserie"
+                            name="NRut"
                             variant="outlined"
                             required
                             label="Rut"
@@ -146,9 +145,7 @@ const FormMultiplesRut = () => {
                             helperText="Formato Requerido (601456988)"
                             
 
-                        />
-                        
-                  
+                        />                  
                         <Button
                             type="submit"
                             xs={12} sm={12} md={12} xl={12}  fullWidth
@@ -158,7 +155,6 @@ const FormMultiplesRut = () => {
                             
                         >Informe Comercial
                     </Button>
-
 
 
                     </form>

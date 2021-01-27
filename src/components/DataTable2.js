@@ -109,7 +109,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const DataTable = ({data}) => {
+const DataTable2 = ({data}) => {
 
     const classes = useStyles();
     const columns = data[0] && Object.keys(data[0])
@@ -139,10 +139,10 @@ const DataTable = ({data}) => {
               <TableRow >
               {/*data[0] && columns.map((heading) => <th> {heading}  </th> )  me trae el nombre de las columnas segun el nombre que tienen en la bd*/}
               <TableCell component="th" scope="row" align="center" className={classes.titulo}>
-              Nombre Empleado             
+              Descripcion          
              </TableCell>  
              <TableCell component="th" scope="row" align="center" className={classes.titulo}>
-              Salario          
+              Glosa         
              </TableCell>  
               </TableRow>
             </TableHead>
@@ -194,4 +194,4 @@ const DataTable = ({data}) => {
      );
 }
  
-export default DataTable;
+export default DataTable2;
