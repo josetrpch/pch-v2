@@ -58,7 +58,7 @@ const SituacionRiesgoCard =() => {
       
       </Card>
       
-      <Typography variant="h6" style={{background: '#f5f5f5'}} align="center">  Alto</Typography>
+      <Typography variant="h6" style={{background: '#f5f5f5'}} align="center">  Alto 10%</Typography>
           
     </Grid>
          

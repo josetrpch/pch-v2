@@ -1,11 +1,14 @@
 import React from 'react';
 
-import { TextField, Grid, Button, Avatar, Paper, Typography, makeStyles, CssBaseline, Container,Breadcrumbs,Link, Box} from '@material-ui/core'
+import { TextField, Grid, Button, Avatar, Paper, Typography, makeStyles, CssBaseline, Container,Breadcrumbs,Link, Box, Divider} from '@material-ui/core'
 import { useHistory } from 'react-router-dom';
 import BuildIcon from '@material-ui/icons/Build';
 import SearchIcon from '@material-ui/icons/Search';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
+
+import InformerComercial from '../../assets/imagenes/InformeComercialPlus1.png';
+
 const useStyles = makeStyles((theme) => ({
   palette: {
     primary: {
@@ -30,7 +33,9 @@ avatar: {
 },
 form: {
     width: '50%', // Fix IE 11 issue.
-    marginTop: theme.spacing(0),
+    marginTop: theme.spacing(1),
+    marginRight : theme.spacing(2),
+    marginLeft: theme.spacing(2)
 },
 submit: {
     width: '100%',
@@ -77,20 +82,22 @@ const FormInfoCom = () => {
       
                 <CssBaseline />
 
-              <Grid container xs={12} sm={8} md={8} xl={8}  component={Paper} elevation={3}  zeroMinWidth>
+              <Grid container xs={12} sm={12} md={12} xl={6} lg={6}  component={Paper} elevation={3}  zeroMinWidth>
                 <Grid item xs={12} sm={12} md={12} xl={12}  direction="column" justify="center"  alignItems="center">  
 
                 <Typography component="h1" variant="h4" style={{textAlign: 'center', paddingTop: '5px'}} className={classes.paper} > {/*el component es para quelo tome como un h1 */}  
-                    <Avatar className={classes.avatar} variant="rounded">
-                        <SearchIcon />
-                    </Avatar>
-                        Consulta Multiple                                  
+                    
+                    <img src={InformerComercial} style={{width:'100px', height:'100px'}} />
+                    
+                        Informe Comercial                                 
                     </Typography>
                     </Grid>
+                  
                     <Grid container xs={12} sm={12} md={12} xl={12}         
                     justify="space-around"
                     alignItems="center" 
                     >
+                      
                      <Formik
                     initialValues={{
                         Nrut: "",
@@ -98,8 +105,9 @@ const FormInfoCom = () => {
                     }}
             validationSchema={
               Yup.object().shape({
-                Nrut: Yup.string().min(9).max(9).required('Debes de indicar Rut'),
-                Nserie: Yup.string().min(9).max(9).required('Debes de indicar el N° Serie'),
+                Nrut: Yup.string().min(8).max(8).required('Debes de indicar Rut'),
+                Ndv : Yup.string().min(1).max(1),
+                Nserie: Yup.string().min(9).max(9),
               })
             }
             onSubmit={(values) => {
@@ -120,9 +128,17 @@ const FormInfoCom = () => {
               touched,
               values
             }) => (
-              <form onSubmit={handleSubmit}>
-            
-                <TextField
+              <form onSubmit={handleSubmit} autoComplete="off">
+                <Grid
+                container
+                direction="row"
+                justify="left"
+                alignItems="left"
+                spacing={2}
+                >
+                <Grid item xs={12} sm={12} xl={7} md={7} lg={7}>
+                 
+                  <TextField
                   error={Boolean(touched.Nrut && errors.Nrut)}
                   fullWidth
                   helperText={touched.Nrut && errors.Nrut}
@@ -132,13 +148,36 @@ const FormInfoCom = () => {
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.Nrut}
+                  variant="outlined"/>
+                
+               </Grid>
+               <Grid item xs={12} sm={12} xl={2} md={2} lg={2}>
+                 
+                  <TextField
+                  error={Boolean(touched.Ndv && errors.Ndv)}
+                  fullWidth
+                  helperText={touched.Ndv && errors.Ndv}
+                  label=""
+                  margin="normal"
+                  name="Ndv"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values.Ndv}
                   variant="outlined"
-                />
+                  disabled={true}/>
+                
+               </Grid>
+
+                    </Grid>
+               
+               
+               
+                
                 <TextField
                   error={Boolean(touched.Nserie && errors.Nserie)}
                   fullWidth
                   helperText={touched.Nserie && errors.Nserie}
-                  label="N° Serie"
+                  label="N° Documento"
                   margin="normal"
                   name="Nserie"
                   onBlur={handleBlur}
@@ -149,13 +188,23 @@ const FormInfoCom = () => {
                
                 <Box my={2}>
                   <Button
-                    color="secondary"
+                    color="primary"
                     disabled={isSubmitting}
                     fullWidth
                     size="large"
                     type="submit"
                     variant="contained">
                     Informe Comercial
+                  </Button>
+                  <br/><br/><br/>
+                  <Button
+                    color="primary"
+                    disabled={isSubmitting}
+                    fullWidth
+                    size="large"
+                    type="submit"
+                    variant="outlined">
+                    Limpiar
                   </Button>
                 </Box>
               

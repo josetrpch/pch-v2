@@ -2,36 +2,26 @@ import React,{useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import clsx from 'clsx';
 import { TextField,
-     Grid, 
-     Button, 
-     Avatar, 
-     Paper, 
+     Grid,
      Typography, 
      makeStyles, 
      CssBaseline, 
      Card, 
      CardContent, 
-     Box, 
-     Container, 
      Divider, 
-     Tooltip,
-     TableContainer,
-     TableCell,
-     TableRow,
-     Table} from '@material-ui/core';
-import Badge from '@material-ui/core/Badge';
-import Fab from '@material-ui/core/Fab';
+     Tooltip,Fab} from '@material-ui/core';
 import CheckIcon from '@material-ui/icons/Check';
 import CloseIcon from '@material-ui/icons/Close';
 
 
 
-import Graficos from '../Graficos/Graficos';
+import Grafico2 from '../Graficos/Grafico2';
 import TblDetalleConsultasRut from './TblDetalleConsultasRut';
 import SituacionRiesgoCard from '../Graficos/SituacionRiesgoCard';
 import GrafCumplimiento from '../Graficos/GrafCumplimiento';
 import TblDOcumentoPortalchq from './TblDOcumentoPortalchq';
 import IncadoresConsulta from './IncadoresConsulta';
+import { TblOrdenesnoPago } from './TblOrdenesnoPago';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -82,11 +72,8 @@ const useStyles = makeStyles((theme) => ({
 
     ButtonDanger: {
         backgroundColor: '#e8e3e4',
-        color: 'white',
-        '&:hover': {
-            backgroundColor: '#d1cbcc',
-            color: 'white',
-        },
+        color: 'red',
+       
     },
     tituloTable: {
 
@@ -108,9 +95,15 @@ const useStyles = makeStyles((theme) => ({
             fontWeight: '250',
             fontSize : '20px',
             height: 'auto',
-            alignContent: 'center'
+            alignContent: 'center',
+            
+            
             
             },
+
+        FondoTable :{
+            backgroundColor: theme.palette.greyFondo.main
+        }
 
 
 }));
@@ -135,17 +128,17 @@ const InformeRessult = (props) => {
           
             <Divider/>  
             
-            <Grid component="main" >
+            <Grid component="main"  >
                 
             
                 <CssBaseline />
               
-                <Card>
-                    
-                    <CardContent>
-                    <Grid xs={12} sm={12} xl={12} md={12} lg={12} >
+                <Card >
+                <Grid xs={12} sm={12} xl={12} md={12} lg={12} >
                          <Typography varient="p" align="right" style={{color:'#ff2436'}}><strong>Folio: No. 5723769</strong></Typography>
                     </Grid>
+                    <CardContent>
+                    
                        
                    
                     
@@ -155,14 +148,15 @@ const InformeRessult = (props) => {
                     justify="center"
                     alignItems="center"
                     spacing={2}
->
+                    
+                    >
                     <Grid xs={12} sm={12} xl={4} md={4} lg={4} hover >
                     <Card>
                     <div className={classes.TituloIdentificacion}>
                             
                             IDENTIFICACIÓN
                          </div>
-                        <CardContent>
+                        <CardContent  className={classes.FondoTable} >
                        
                             <Typography variant="body2" color="textPrimary" component="p"><strong>Rut: &nbsp;</strong>76.117.605-6</Typography><hr  />
                             <Typography variant="body2" color="textPrimary" component="p"><strong>Rubro:&nbsp;</strong>MAYORISTA DE FRUTAS Y VERDURAS</Typography><hr />
@@ -180,7 +174,7 @@ const InformeRessult = (props) => {
                             
                             ANTECEDENTES
                          </div>
-                        <CardContent>
+                        <CardContent className={classes.FondoTable}>
                     
                             <Typography variant="body2" color="textPrimary" component="p"><strong>Ultima Dirección registrada: &nbsp;</strong>PATRIOTAS URUGUAYOS 2242 C, SANTIAGO, SANTIAGO</Typography><hr />
                             <Typography variant="body2" color="textPrimary" component="p"><strong>Teléfono uno:&nbsp;</strong>2 28986201</Typography><hr />
@@ -199,7 +193,7 @@ const InformeRessult = (props) => {
                             
                             ANTECEDENTES LABORALES
                          </div>
-                        <CardContent>
+                        <CardContent className={classes.FondoTable}>
                        
                             <Typography variant="body2" color="textPrimary" component="p"><strong>Actividad Profesional: &nbsp;</strong>NO REGISTRA</Typography><hr />
                             <Typography variant="body2" color="textPrimary" component="p"><strong>Razón Social:&nbsp;</strong>NO REGISTRA</Typography><hr />
@@ -228,10 +222,10 @@ const InformeRessult = (props) => {
                                <div className={classes.TituloIdentificacion}>Total Documentos impagados</div>
                                 <CardContent>
 
-                                    <Typography variant="h5" align="center" >No registra</Typography>
+                                    <Typography variant="h5" align="center" >SI REGISTRA</Typography>
                                     
                                 </CardContent>
-                                <Typography align="center">Puntaje calculado al 27 OCT 2020</Typography>
+                                <Typography align="center">Puntaje calculado al 27 OCT 2017</Typography>
                                 </Card>
 
                             </Grid>
@@ -277,7 +271,7 @@ const InformeRessult = (props) => {
                                 direction="row"
                                 spacing={2}
                             >
-                                <Grid item xs={12} sm={12} xl={2} md={3} lg={3}  >
+                                <Grid item xs={12} sm={12} xl={4} md={4} lg={4}  >
                                 <Card >
                                 <div className={classes.TituloIdentificacion}>Registro de Quiebra
                              
@@ -305,11 +299,9 @@ const InformeRessult = (props) => {
                                     </Card>
 
                                 </Grid>
-                                <Grid item  xs={12} sm={12} xl={2} md={3} lg={3} >
+                                <Grid item xs={12} sm={12} xl={4} md={4} lg={4}  >
                                 <Card>
-                                <div className={classes.TituloIdentificacion}>Indicadores de Acreditación
-                             
-                                </div> 
+                                <div className={classes.TituloIdentificacion}>Indicadores de Acreditación</div> 
                                 <CardContent >
                                    
                                 
@@ -327,8 +319,8 @@ const InformeRessult = (props) => {
                                             </Tooltip>
                                         
                                         </Fab>
-                                        <Typography  align="left" style={{marginTop : '10px'}}>Cantidad Banco: <strong> 2</strong></Typography><hr />
-                                        <Typography  align="left" style={{marginTop : '10px'}}>Bancos en que ha registrado movimientos: <hr /> <strong>ITAU CORPBANCA (EX CORPBANCA),DE CHILE (EX EDWARDS)</strong></Typography>
+                                        <Typography  align="left" style={{marginTop : '10px'}}>Cantidad Banco: <strong> 1</strong></Typography><hr />
+                                        <Typography  align="left" style={{marginTop : '10px'}}>Bancos en que ha registrado movimientos: <hr /> <strong>SECURITY</strong></Typography>
                                        
                                     </div>
                                 </CardContent>
@@ -336,7 +328,7 @@ const InformeRessult = (props) => {
 
                                 </Grid>
 
-                                <Grid item  xs={12} sm={12} xl={2} md={3} lg={3} >
+                                <Grid item xs={12} sm={12} xl={4} md={4} lg={4}  >
                                     <Card>
                                     <div className={classes.TituloIdentificacion}>Participación en Sociedades</div> 
                                     <CardContent>
@@ -357,8 +349,8 @@ const InformeRessult = (props) => {
                                     </Card>
 
                                 </Grid>
-                                <Grid item xs={12} sm={12} xl={2} md={3} lg={3} >
-                                <Card>
+                                <Grid item xs={12} sm={12} xl={4} md={4} lg={4}  >
+                                <Card style={{backgroundColor:'#d5d6db'}}>
                                 <div className={classes.TituloIdentificacion}>Registra Propíedades</div>
                                     <CardContent>
                                         
@@ -368,26 +360,27 @@ const InformeRessult = (props) => {
                                         
                                             <Fab
                                                 aria-label="save"
-                                                className={classes.buttonSuccess}
+                                                className={classes.ButtonDanger}
                                                 align="center"
+                                                disabled={true}
                                             >
-                                                <Typography variant="h5" align="center" ><CheckIcon/></Typography> &nbsp;
+                                                <Typography variant="h5" align="center" ><CloseIcon/></Typography> &nbsp;
                                                 
                                               
                                                 
                                             </Fab>
                                             
-                                            <Typography  align="left" style={{marginTop : '15px'}} >Cantidad Propiedad: <strong> 7</strong> </Typography>
+                                            {/*<Typography  align="left" style={{marginTop : '15px'}} >Cantidad Propiedad: <strong> 7</strong> </Typography>
                                                 <Typography  align="left" style={{marginTop : '15px'}} >Total Avalúo:  <strong>{formatterPeso.format(635232445)} </strong> </Typography><hr/>
-                                                <Typography  align="left" style={{marginTop : '15px'}} >Registra información de Propiedades: <strong> SI </strong> </Typography>
+                                     <Typography  align="left" style={{marginTop : '15px'}} >Registra información de Propiedades: <strong> SI </strong> </Typography>*/}
                                         </div>
 
                                     </CardContent>
                                     </Card>
 
                                 </Grid>
-                                <Grid item xs={12} sm={12} xl={2} md={3} lg={3}  >
-                                    <Card>
+                                <Grid item xs={12} sm={12} xl={4} md={4} lg={4}  >
+                                    <Card style={{backgroundColor:'#d5d6db'}} >
                                     <div className={classes.TituloIdentificacion}>Presenta Boletin Laboral</div>
                                     <CardContent>
                                         
@@ -398,11 +391,12 @@ const InformeRessult = (props) => {
                                                 aria-label="save"
                                                 className={classes.buttonSuccess}
                                                 align="center"
+                                                disabled={true}
                                             >
-                                               <Typography variant="h5" align="center" ><CheckIcon/></Typography>
+                                               <Typography variant="h5" align="center" ><CloseIcon/></Typography>
                                             </Fab>
-                                            <Typography  align="left" style={{marginTop : '15px'}} >Fecha ultimo boletín:<strong>10-12-2020</strong></Typography><hr/>
-                                            <Typography  align="left" style={{marginTop : '15px'}} >Total documento:  <strong>1259</strong> </Typography>
+                                            {/*<Typography  align="left" style={{marginTop : '15px'}} >Fecha ultimo boletín:<strong>10-12-2020</strong></Typography><hr/>
+                                            <Typography  align="left" style={{marginTop : '15px'}} >Total documento:  <strong>1259</strong> </Typography>*/}
                                         </div>
 
 
@@ -410,7 +404,7 @@ const InformeRessult = (props) => {
                                     </Card>
 
                                 </Grid>
-                                <Grid item xs={12} sm={12} xl={2} md={3} lg={3}  >
+                                <Grid item xs={12} sm={12} xl={4} md={4} lg={4}  >
                                     <Card style={{backgroundColor:'#d5d6db'}}>
                                     <div className={classes.TituloIdentificacion}>Registra Vehículo</div> 
                                     <CardContent>
@@ -422,6 +416,7 @@ const InformeRessult = (props) => {
                                                 aria-label="save"
                                                 className={classes.ButtonDanger}
                                                 align="center"
+                                                disabled={true}
                                             >
                                                <Typography variant="h5" align="center" ><CloseIcon/></Typography>
                                             </Fab>
@@ -434,7 +429,7 @@ const InformeRessult = (props) => {
 
                                 </Grid>
 
-                                <Grid item xs={12} sm={12} xl={2} md={3} lg={3}  >
+                                <Grid item xs={12} sm={12} xl={4} md={4} lg={4}  >
                                     <Card>
                                     <div className={classes.TituloIdentificacion}>Registra Morosidad</div> 
                                     <CardContent>
@@ -451,8 +446,8 @@ const InformeRessult = (props) => {
                                                <Typography variant="h5" align="center" ><CheckIcon/></Typography>
                                             </Fab>
                                            
-                                            <Typography  align="left" style={{marginTop : '15px'}} >Total impagos:<strong>6</strong></Typography><hr/>
-                                            <Typography  align="left" style={{marginTop : '15px'}} >Fecha Vencimiento Último Impago: <strong> 02-03-2020</strong></Typography> 
+                                            <Typography  align="left" style={{marginTop : '15px'}} >Total impagos:<strong>5</strong></Typography><hr/>
+                                            <Typography  align="left" style={{marginTop : '15px'}} >Fecha Vencimiento Último Impago: <strong> 16-01-2017</strong></Typography> 
                                            
                                         </div>
 
@@ -462,7 +457,7 @@ const InformeRessult = (props) => {
 
                                 </Grid>
 
-                                <Grid item xs={12} sm={12} xl={2} md={3} lg={3}  >
+                                <Grid item xs={12} sm={12} xl={4} md={4} lg={4}  >
                                     <Card>
                                     <div className={classes.TituloIdentificacion}>Registro de Protestos</div> 
                                     <CardContent>
@@ -479,8 +474,8 @@ const InformeRessult = (props) => {
                                                <Typography variant="h5" align="center" ><CheckIcon/></Typography>
                                             </Fab>
                                            
-                                            <Typography  align="left" style={{marginTop : '15px'}} >Total impagos:<strong>11</strong></Typography><hr/>
-                                            <Typography  align="left" style={{marginTop : '15px'}} >Fecha Vencimiento Último Impago: <strong> 01-09-2020</strong> </Typography>
+                                            <Typography  align="left" style={{marginTop : '15px'}} >Total impagos:<strong>66</strong></Typography><hr/>
+                                            <Typography  align="left" style={{marginTop : '15px'}} >Fecha Vencimiento Último Impago: <strong> 22-06-2017</strong> </Typography>
                                            
                                         </div>
 
@@ -502,82 +497,95 @@ const InformeRessult = (props) => {
 
 
             </Grid>
+           
+                 <Grid component="main" className={classes.root} >   
+                 <div className={classes.TituloIdentificacion}> GRAFICOS INDICADORES </div>
+                    <Card>
 
-            <Grid container direction="row" justify="space-evenly"  alignItems="flex-start" >
-
-            <Grid  xs={12} sm={12} xl={6} md={6}   >
+                   <CardContent>
+                <Grid  container direction="row"  spacing={2}>  
+                <Grid item xs={12} sm={12} xl={6} md={6} lg={6}>
                 <CssBaseline />
                 <Card>
                 <div className={classes.TituloIdentificacion}>Situación de Riesgo</div>
+                    
                     <CardContent>
-                          <br />
+                        <br />
                         < SituacionRiesgoCard />
                         <br />
-                       
-                      
-                    </CardContent>
-                </Card>
+                        </CardContent>
+                        </Card>
+                        <Grid container direction="row" spacing={2}>
+
+                        </Grid>
+                        <Card>
+                        
+                        <div className={classes.TituloIdentificacion}>Cumplimiento</div>
+                        <CardContent>
+                       < GrafCumplimiento />
+                        </CardContent>
+                        </Card>
+                    
+                
 
                 
-            </Grid>
-            <Grid  xs={12} sm={12} xl={6} md={6}   margin={2,2,2,2}>
+                </Grid>
+
+            <Grid item xs={12} sm={12} xl={6} md={6} lg={6} >
                 <CssBaseline />
                 <Card>
-                <div className={classes.TituloIdentificacion}>Cumplimiento</div>
+                <div className={classes.TituloIdentificacion}>Período de Morosidad</div>
                     <CardContent>
                           
-                        <br />
-                       < GrafCumplimiento />
+                    <Grafico2 />                 
                       
                     </CardContent>
                 </Card>
 
                 
             </Grid>
-
-       
             </Grid>
-        
+             </CardContent>
+              </Card>
+              
+              </Grid>
+
             <Grid component="main" className={classes.root} >
-            <Grid  xs={12} sm={12} xl={12} md={12}   className={classes.root}>
+            <div className={classes.TituloIdentificacion}></div>
+                <Card>
+                <CardContent>
+            <Grid  container direction="row"  spacing={1, 2}>                         
+           
+            <Grid item xs={12} sm={12} xl={6} md={6} lg={6} >
                 <CssBaseline />
                 <Card>
+                <div className={classes.TituloIdentificacion}>Documentos portal cheque</div>
                     <CardContent>
                        
-                        <Graficos />
-                        <Grid>
-                            <br />
-                        </Grid>
+                    < TblDOcumentoPortalchq />
                        
-                      
                     </CardContent>
                 </Card>
 
-                
             </Grid>
-
-            </Grid>
-            <Grid  container direction="row" justify="space-evenly" alignItems="flex-start" >
-            <Grid  xs={12} sm={12} xl={6} md={6}   className={classes.root}>
+            <Grid item xs={12} sm={12} xl={6} md={6} lg={6} >
                 <CssBaseline />
                 <Card>
+                <div className={classes.TituloIdentificacion}>Ordenes de no pago</div>
                     <CardContent>
                        
-                        < TblDOcumentoPortalchq />
+                        < TblOrdenesnoPago />
                     
-                      
-                       
-                      
+        
                     </CardContent>
                 </Card>
 
                 
-            </Grid>
-
-
-            <Grid  xs={12} sm={12} xl={6} md={6}   className={classes.root}>
-                <CssBaseline />
+            </Grid> 
+            <Grid  xs={12} sm={12} xl={6} md={12} lg={6}>
+                
                 <Card>
+                <div className={classes.TituloIdentificacion}>Detalle Consulta por Rut</div>
                     <CardContent>
                       
                         <TblDetalleConsultasRut />
@@ -587,8 +595,17 @@ const InformeRessult = (props) => {
 
                 
             </Grid>
+            
+            </Grid> 
 
+            </CardContent>
+            </Card>
             </Grid>
+         
+             
+        
+     
+            
     
         </>
     )

@@ -108,6 +108,10 @@ const useStyle = makeStyles(theme => ({
     },
   },
 
+  colorIconos :{
+    backgroundColor: theme.palette.greyFondo.main
+  }
+
 
 }))
 
@@ -225,12 +229,12 @@ const NavBar = ({open, handleDrawerOpen}) => {
 
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
+            <IconButton aria-label="show 4 new mails" className={classes.colorIconos.main}>
               <Badge badgeContent={4} color="primary">
                 <MailIcon />
               </Badge>
             </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
+            <IconButton aria-label="show 17 new notifications" className={classes.colorIconos.main}>
               <Badge badgeContent={17} color="primary">
                 <NotificationsIcon  />
               </Badge>
@@ -241,7 +245,7 @@ const NavBar = ({open, handleDrawerOpen}) => {
               aria-controls={menuId}
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
-              color="inherit"
+              className={classes.colorIconos.main}
             >
               <AccountCircle />
             </IconButton>

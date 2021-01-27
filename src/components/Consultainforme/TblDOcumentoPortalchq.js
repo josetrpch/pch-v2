@@ -30,53 +30,32 @@ const dataDocumento = [
 {
     id: uuid(),
     item: 'Monto Vencido',
-    Qmonto: '4577502',
+    Qmonto: '0',
 
 },
 {
     id: uuid(),
     item: 'Monto Giro',
-    Qmonto: '6815892',
-
-},
-{
-    id: uuid(),
-    item: 'Monto Codificado',
-    Qmonto: '4577502',
-
+    Qmonto: '0',
 
 },
 {
     id: uuid(),
     item: 'Monto Rechazado',
-    Qmonto: '2238390',
-
-    
-
-},
-{
-    id: uuid(),
-    item: 'Monto Vencer',
     Qmonto: '0',
-    
-    
 
 },
-{
-    id: uuid(),
-    item: 'Monto al día',
-    Qmonto: '0',
-    
-    
 
-},
 
 ]; 
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     root: {},
     actions: {
       justifyContent: 'flex-end'
+    }, 
+    FondoTable:{
+        backgroundColor: theme.palette.greyFondo.main
     }
   }));
   const formatterDolar = new Intl.NumberFormat('es-CL', {
@@ -92,15 +71,15 @@ const TblDOcumentoPortalchq =({className, ...rest})=>{
             className={clsx(classes.root, className)}
             {...rest}
             >
-            <CardHeader title="Detalle Consulta por Rut" />
+        
                 <Divider />
             <PerfectScrollbar>
                 <Box minWidth={800}>
                     <Table>
-                        <TableHead>
+                        <TableHead className={classes.FondoTable}>
                             <TableRow>
                                 <TableCell>Cuadro de Resumen</TableCell>
-                                <TableCell></TableCell>
+                                <TableCell>Q</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>

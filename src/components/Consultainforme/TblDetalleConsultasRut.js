@@ -39,13 +39,95 @@ const data = [
     Empresa: 'TELECHEQUE INFORMACION Y GESTION S.A.',
 
 },
+{
+    idConsulta: uuid(),
+    DetalleConsultFecha: '17-02-2020',
+    Empresa: 'PORTAL CHEQUE S.A',
+
+},
+{
+    idConsulta: uuid(),
+    DetalleConsultFecha: '17-02-2020',
+    Empresa: 'PORTAL CHEQUE S.A',
+
+},
+{
+    idConsulta: uuid(),
+    DetalleConsultFecha: '17-02-2020',
+    Empresa: 'PORTAL CHEQUE S.A',
+
+},
+{
+    idConsulta: uuid(),
+    DetalleConsultFecha: '17-02-2020',
+    Empresa: 'PORTAL CHEQUE S.A',
+
+},
+{
+    idConsulta: uuid(),
+    DetalleConsultFecha: '17-02-2020',
+    Empresa: 'PORTAL CHEQUE S.A',
+
+},
+{
+    idConsulta: uuid(),
+    DetalleConsultFecha: '17-02-2020',
+    Empresa: 'PORTAL CHEQUE S.A',
+
+},
+{
+    idConsulta: uuid(),
+    DetalleConsultFecha: '17-02-2020',
+    Empresa: 'PORTAL CHEQUE S.A',
+
+},
+{
+    idConsulta: uuid(),
+    DetalleConsultFecha: '17-02-2020',
+    Empresa: 'PORTAL CHEQUE S.A',
+
+},
+{
+    idConsulta: uuid(),
+    DetalleConsultFecha: '17-02-2020',
+    Empresa: 'PORTAL CHEQUE S.A',
+
+},
+{
+    idConsulta: uuid(),
+    DetalleConsultFecha: '17-02-2020',
+    Empresa: 'PORTAL CHEQUE S.A',
+
+},
+{
+    idConsulta: uuid(),
+    DetalleConsultFecha: '17-02-2020',
+    Empresa: 'PORTAL CHEQUE S.A',
+
+},
+{
+    idConsulta: uuid(),
+    DetalleConsultFecha: '17-02-2020',
+    Empresa: 'PORTAL CHEQUE S.A',
+
+},
+{
+    idConsulta: uuid(),
+    DetalleConsultFecha: '17-02-2020',
+    Empresa: 'PORTAL CHEQUE S.A',
+
+},
+    
 ]; 
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     root: {},
     actions: {
       justifyContent: 'flex-end'
-    }
+    },
+    FondoTable :{
+        backgroundColor: theme.palette.greyFondo.main
+    },
   }));
 
 const TblDetalleConsultasRut =({className, ...rest})=>{
@@ -57,12 +139,12 @@ const TblDetalleConsultasRut =({className, ...rest})=>{
             className={clsx(classes.root, className)}
             {...rest}
             >
-            <CardHeader title="Detalle Consulta por Rut" />
+            
                 <Divider />
             <PerfectScrollbar>
                 <Box minWidth={800}>
-                    <Table>
-                        <TableHead>
+                    <Table >
+                        <TableHead className={classes.FondoTable}>
                             <TableRow>
                                 <TableCell>
                                    

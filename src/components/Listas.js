@@ -22,8 +22,8 @@ import {
 } from 'react-router-dom';
 
 import FormMultiplesRut from './consultamultiple/FormMultiplesRut';
-import FormInfoCom from './FormInfoCom';
-import FomConsulIC from './Consultainforme/FomConsulIC';
+import FormInfoCom from '../components/Consultainforme/FormInfoCom';
+
 
 import ViewInforme from '../components/Consultainforme/ViewInforme';
 

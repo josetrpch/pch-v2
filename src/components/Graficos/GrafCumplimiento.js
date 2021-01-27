@@ -54,7 +54,7 @@ const GrafCumplimiento = () => {
      </Button>
      </Card>
    
-            <Typography variant="h6" style={{background: '#f5f5f5'}} align="center">0 % Cumplimiento</Typography>
+            <Typography variant="h6" style={{background: '#f5f5f5'}} align="center">12 % Cumplimiento</Typography>
     </Grid>
     <Grid item={true} xs={12} sm={4} xl={3} md={4} lg={4}>
       <Box style={{backgroundColor:'#d5d6db'}}>
