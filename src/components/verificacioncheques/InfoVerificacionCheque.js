@@ -8,6 +8,9 @@ import Fab from '@material-ui/core/Fab';
 import Tabla1 from '../Tabla1';
 import Tabla2 from '../Tabla2';
 
+import ConsultaApi from '../ConsultaApi';
+import ConsultaApi2 from '../ConsultaApi2';
+
 const useStyle = makeStyles( (theme) =>({
     root: {
         flexGrow: 1,
@@ -75,7 +78,8 @@ const InfoVerificacionCheque = () => {
                 <Grid item xd={12} sm={12} md={12} xl={12}>
                     
                     
-                        <Tabla1/>
+                        {/*<DataTable/>*/}
+                        <ConsultaApi/>
                     
                     
                     
@@ -163,8 +167,8 @@ const InfoVerificacionCheque = () => {
 
                             <Grid item xd={12} sm={12} md={12} xl={12}>
                     
-                    
-                        <Tabla2/>
+                    {/*<DataTable2/>*/}
+                        <ConsultaApi2/>
                     
                     
                     

@@ -4,8 +4,10 @@ import { TextField, Grid, Button, Avatar, Paper, Typography, makeStyles, CssBase
 import { useHistory } from 'react-router-dom';
 import BuildIcon from '@material-ui/icons/Build';
 import SearchIcon from '@material-ui/icons/Search';
+
 import * as Yup from 'yup';
 import { Formik } from 'formik';
+
 const useStyles = makeStyles((theme) => ({
   palette: {
     primary: {
@@ -96,7 +98,7 @@ const FormInfoCom = () => {
                         Nrut: "",
                         Nserie: "",
                     }}
-            validationSchema={
+            validationSchema= {
               Yup.object().shape({
                 Nrut: Yup.string().min(9).max(9).required('Debes de indicar Rut'),
                 Nserie: Yup.string().min(9).max(9).required('Debes de indicar el N° Serie'),
@@ -123,7 +125,9 @@ const FormInfoCom = () => {
               <form onSubmit={handleSubmit}>
             
                 <TextField
-                  error={Boolean(touched.Nrut && errors.Nrut)}
+                  error={errors.Nrut && touched.Nrut ? (
+                    <div>{errors.Nrut}</div>
+                  ) : null} // error con colores
                   fullWidth
                   helperText={touched.Nrut && errors.Nrut}
                   label="N° Rut"
