@@ -4,6 +4,7 @@ import { TextField, Grid, Button, Avatar, Paper, Typography, makeStyles, CssBase
 import { useHistory } from 'react-router-dom';
 import BuildIcon from '@material-ui/icons/Build';
 import SearchIcon from '@material-ui/icons/Search';
+
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 
@@ -103,7 +104,7 @@ const FormInfoCom = () => {
                         Nrut: "",
                         Nserie: "",
                     }}
-            validationSchema={
+            validationSchema= {
               Yup.object().shape({
                 Nrut: Yup.string().min(8).max(8).required('Debes de indicar Rut'),
                 Ndv : Yup.string().min(1).max(1),
@@ -128,6 +129,7 @@ const FormInfoCom = () => {
               touched,
               values
             }) => (
+
               <form onSubmit={handleSubmit} autoComplete="off">
                 <Grid
                 container
